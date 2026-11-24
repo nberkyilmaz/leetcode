@@ -1,18 +1,22 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        s_set = {}
-        t_set = {}
+        set_s = {}
+        set_t = {}
+        seen = 1
         for char in s:
-            if char in s_set:
-                s_set[char] = s_set[char] + 1
+            if char in set_s:
+                set_s[char]= set_s[char] + 1
             else:
-                s_set[char] = 1
+                set_s[char] = seen
+        seen = 1
         for char in t:
-            if char in t_set:
-                t_set[char] = t_set[char] + 1
+            if char in set_t:
+                set_t[char]= set_t[char] + 1
             else:
-                t_set[char] = 1
-        if s_set == t_set:
+                set_t[char] = seen
+        
+        if set_s == set_t:
+            print(set_t, set_s)
             return True
         else:
             return False
